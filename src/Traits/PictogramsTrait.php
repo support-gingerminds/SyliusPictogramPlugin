@@ -43,10 +43,6 @@ trait PictogramsTrait
      */
     public function getPictograms(): Collection
     {
-        if (null === $this->pictograms) {
-            $this->initializePictogramsCollection();
-        }
-
         return $this->pictograms;
     }
 
@@ -55,10 +51,6 @@ trait PictogramsTrait
      */
     public function hasPictograms(): bool
     {
-        if (null === $this->pictograms) {
-            $this->initializePictogramsCollection();
-        }
-
         return !$this->pictograms->isEmpty();
     }
 
@@ -69,10 +61,6 @@ trait PictogramsTrait
      */
     public function hasPictogram(PictogramInterface $pictogram): bool
     {
-        if (null === $this->pictograms) {
-            $this->initializePictogramsCollection();
-        }
-
         return $this->pictograms->contains($pictogram);
     }
 
@@ -81,10 +69,6 @@ trait PictogramsTrait
      */
     public function addPictogram(PictogramInterface $pictogram): void
     {
-        if (null === $this->pictograms) {
-            $this->initializePictogramsCollection();
-        }
-
         $this->pictograms->add($pictogram);
     }
 
@@ -105,10 +89,6 @@ trait PictogramsTrait
      */
     public function getAllPictogramByGroupCode(string $pictogramGroupCode) : Collection
     {
-        if (null === $this->pictograms) {
-            $this->initializePictogramsCollection();
-        }
-
         return $this->pictograms->filter(function (Pictogram $pictograms) use ($pictogramGroupCode) {
             return $pictograms->getPictogramGroup()->getCode() === $pictogramGroupCode;
         });
@@ -121,10 +101,6 @@ trait PictogramsTrait
      */
     public function getAllGroupsFromPictograms(Collection $pictograms) : array
     {
-        if (null === $this->pictograms) {
-            $this->initializePictogramsCollection();
-        }
-
         $groups = [];
 
         /** @var Pictogram $pictogram */
