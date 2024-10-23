@@ -73,7 +73,6 @@ trait PictogramsTrait
      */
     public function addPictogram(PictogramInterface $pictogram): void
     {
-        dd($this->pictograms);
         $this->pictograms->add($pictogram);
     }
 
