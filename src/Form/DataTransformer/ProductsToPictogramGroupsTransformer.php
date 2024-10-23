@@ -57,7 +57,6 @@ class ProductsToPictogramGroupsTransformer implements DataTransformerInterface
      */
     public function transform($pictograms)
     {
-        dd('test', $pictograms);
         $this->setPictograms($pictograms);
 
         if (null === $pictograms) {
