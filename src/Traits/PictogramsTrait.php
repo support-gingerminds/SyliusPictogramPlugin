@@ -28,6 +28,19 @@ trait PictogramsTrait
      *      inverseJoinColumns={@ORM\JoinColumn(name="pictogram_id", referencedColumnName="id")}
      *      )
      */
+    #[ORM\ManyToMany(
+        targetEntity: "Asdoria\SyliusPictogramPlugin\Model\PictogramInterface",
+        inversedBy: "products"
+    )]
+    #[ORM\JoinTable(
+        name: "asdoria_products_pictograms",
+        joinColumns: [
+            new ORM\JoinColumn(name: "product_id", referencedColumnName: "id")
+        ],
+        inverseJoinColumns: [
+            new ORM\JoinColumn(name: "pictogram_id", referencedColumnName: "id")
+        ]
+    )]
     protected Collection $pictograms;
 
     /**
