@@ -34,6 +34,9 @@ class ProductTypeExtension extends AbstractTypeExtension
                 },
                 'choice_label' => 'code',
             ])
+            ->addEventListener(FormEvents::PRE_SUBMIT,function (FormEvent $event) {
+                dd($event);
+            })
         ;
     }
 
