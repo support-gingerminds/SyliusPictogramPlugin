@@ -17,7 +17,7 @@ use Doctrine\ORM\Mapping as ORM;
 trait PictogramsTrait
 {
     /**
-     * @var Collection|null
+     * @var Collection
      *
      * @ORM\ManyToMany(
      *      targetEntity="Asdoria\SyliusPictogramPlugin\Model\PictogramInterface",
@@ -28,7 +28,7 @@ trait PictogramsTrait
      *      inverseJoinColumns={@ORM\JoinColumn(name="pictogram_id", referencedColumnName="id")}
      *      )
      */
-    protected Collection|null $pictograms = null;
+    protected Collection $pictograms;
 
     /**
      * PictogramsTrait constructor.
