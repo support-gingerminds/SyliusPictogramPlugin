@@ -43,6 +43,10 @@ trait PictogramsTrait
      */
     public function getPictograms(): Collection
     {
+        if (null === $this->pictograms) {
+            $this->initializePictogramsCollection();
+        }
+
         return $this->pictograms;
     }
 
