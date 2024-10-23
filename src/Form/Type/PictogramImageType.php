@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Asdoria\SyliusPictogramPlugin\Form\Type;
 
-use MonsieurBiz\SyliusMediaManagerPlugin\Form\Type\ImageType as MediaManagerImageType;
-use MonsieurBiz\SyliusRichEditorPlugin\MonsieurBizSyliusRichEditorPlugin;
 use Sylius\Bundle\CoreBundle\Form\Type\ImageType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -22,11 +20,8 @@ class PictogramImageType extends ImageType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('file', $this->getImageType(), [
+            ->add('file', FileType::class, [
                 'label' => 'asdoria.form.pictogram_image.file',
-                'data_class' => null,
-                'required' => false,
-                'attr' => ['data-image' => 'false'], // To be able to manage display in form
             ]);
     }
 
@@ -36,11 +31,5 @@ class PictogramImageType extends ImageType
     public function getBlockPrefix(): string
     {
         return 'sylius_pictogram_image';
-    }
-
-    private function getImageType(): string
-    {
-        // @phpstan-ignore-next-line
-        return MonsieurBizSyliusRichEditorPlugin::imageMediaManagerExists() ? MediaManagerImageType::class : FileType::class;
     }
 }

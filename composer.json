@@ -12,9 +12,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.0",
-        "sylius/sylius": "^1.13",
-        "monsieurbiz/sylius-media-manager-plugin": "^1.1",
-        "monsieurbiz/sylius-rich-editor-plugin": "^2.4"
+        "sylius/sylius": "^1.13"
     },
     "require-dev": {
         "behat/behat": "^3.6.1",
