@@ -9,6 +9,8 @@ use Asdoria\SyliusPictogramPlugin\Model\PictogramInterface;
 use Sylius\Bundle\ProductBundle\Form\Type\ProductType;
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 
 /**
  * Class ProductTypeExtension
@@ -31,7 +33,11 @@ class ProductTypeExtension extends AbstractTypeExtension
                         $choice->getPictogramGroup() : 'none';
                 },
                 'choice_label' => 'code',
-            ]);
+            ])
+            ->addEventListener(FormEvents::PRE_SUBMIT,function (FormEvent $event) {
+                dd($event);
+            })
+        ;
     }
 
     /**
