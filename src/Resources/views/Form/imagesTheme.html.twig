@@ -6,7 +6,7 @@
             <img class="ui small bordered image" src="{{ form.vars.value.path|imagine_filter('sylius_small') }}" alt="{{ form.vars.value.type }}" />
         {% endif %}
         <div class="ui hidden element">
-            {{ form_widget(form.file) }}
+            {{ form_row(form.file) }}
         </div>
         <div class="ui element">
             {{- form_errors(form.file) -}}
